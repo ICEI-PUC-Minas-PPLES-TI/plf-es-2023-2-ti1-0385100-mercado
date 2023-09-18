@@ -2,7 +2,7 @@
 
 # Nome do projeto
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+Preço Amigo
 
 ## Alunos integrantes da equipe
 
