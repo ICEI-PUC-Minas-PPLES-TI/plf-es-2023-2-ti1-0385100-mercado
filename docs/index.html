@@ -244,7 +244,7 @@
                   Novamente, descreva apenas o que de fato existir, pois ainda
                   não é a hora de apresentar requisitos detalhados ou projetos.
                 </div>
-                <p>...... COLOQUE AQUI O SEU TEXTO ......</p>
+                <p>O problema que se busca resolver com este projeto é o de catalogar em que estabelecimento um determinado produto está com menor preço, visto que a falta de tempo faz com que as pessoas economizem em alguns produtos por sorte, mas paguem o dobro em outros.</p>
               </section>
 
               <section>
@@ -271,7 +271,10 @@
                   querer concentrar a sua prática investigativa, ou como você
                   vai aprofundar no seu trabalho.
                 </div>
-                <p>...... COLOQUE AQUI O SEU TEXTO ......</p>
+                <p>Objetivo geral</p>
+                <p>O objetivo geral desse trabalho é desenvolver um software que exiba produtos de supermercados e informe em qual estabelecimento da região esse produto está com o menor preço.</p>
+                <p>objetivo específico</p>
+                <p>Identificar os menores preços de cada produto e onde eles são ofertados; identificar os mercados mais próximos do usuário; fornecer funcionalidades que permitam identificar um produto específico; fornecer funcionalidades que permitam identificar as melhores ofertas.</p>
               </section>
 
               <section>
@@ -299,7 +302,7 @@
                   estatísticos, que podem ser apresentados, com o objetivo de
                   esclarecer detalhes do problema que será abordado pelo grupo.
                 </div>
-                <p>...... COLOQUE AQUI O SEU TEXTO ......</p>
+                <p>Uma pessoa comum, no dia a dia, está sempre buscando economizar no dinheiro de alguma forma, pois sabe que é com base na análise, pesquisa e comparação de preços de produtos que se é possível economizar de verdade. Com a crise econômica no Brasil a partir de 2014, os preços aumentaram consideravelmente e a maioria da população, majoritariamente de renda baixa, é que sofre com a falta de dinheiro no bolso para comprar itens básicos. E isso principalmente tem a ver com os produtos de supermercado que são cotidianamente consumidos por todos de uma forma ou de outra. Então, é motivado por ajudar essas pessoas que realmente precisam economizar que esse tema foi escolhido. Desse modo, esse estudo visa contribuir com a sociedade fornecendo informações úteis acerca de produtos de supermercado, focalizando no seu preço, permitindo que as pessoas saibam onde comprar pelo preço mais econômico e assim consigam economizar no dinheiro e no tempo gasto investigando os preços.</p>
               </section>
 
               <section>
@@ -329,7 +332,7 @@
                   textual, ou diagramas de personas, mapa de stakeholders, ou
                   como o grupo achar mais conveniente.
                 </div>
-                <p>...... COLOQUE AQUI O SEU TEXTO ......</p>
+                <p>Embora todas as pessoas possam se beneficiar de saber onde comprar um produto pelo menor preço, o público alvo deste trabalho está nas pessoas que realizam compras de supermercado cotidianamente, como donos de casa, homens e mulheres, jovens-adultos, adultos e idosos, que fazem uso frequente ou não de dispositivos tecnológicos, de renda média a baixa, enfim, pessoas que necessitam economizar dinheiro.</p>
               </section>
             </section>
             <hr class="divider" />
@@ -471,18 +474,16 @@
                       <tr>
                         <th scope="row">Usuário do sistema</th>
                         <td>
-                          Registrar minhas tarefas<span class="exemplo"
-                            >EXEMPLO</span
-                          >
+                          Achar facilmente o produto que preciso pelo menor preço
                         </td>
-                        <td>Não esquecer de fazê-las</td>
+                        <td>Economizar tempo e dinheiro nas compras</td>
                       </tr>
                       <tr>
                         <th scope="row">Administrador</th>
                         <td>
-                          Alterar permissões<span class="exemplo">EXEMPLO</span>
+                          Cadastrar produtos e mercados
                         </td>
-                        <td>Permitir que possam administrar contas</td>
+                        <td>Gerar mais opções de produtos e estabelecimentos</td>
                       </tr>
                     </tbody>
                   </table>
@@ -551,22 +552,100 @@
                       <tr>
                         <th scope="row">RF-001</th>
                         <td>
-                          Permitir que o usuário cadastre tarefas<span
-                            class="exemplo"
-                            >EXEMPLO</span
-                          >
+                          Tela inicial: O software deve apresentar na página inicial as principais informações referentes aos produtos ofertados e possuir um menu superior
                         </td>
                         <td>ALTA</td>
                       </tr>
                       <tr>
                         <th scope="row">RF-002</th>
                         <td>
-                          Emitir um relatório de tarefas no mês<span
-                            class="exemplo"
-                            >EXEMPLO</span
-                          >
+                          Histórico de mercados: O software deve apresentar na página inicial uma sessão com o histórico dos últimos mercados visitados pelo usuário
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-003</th>
+                        <td>
+                          Mapa: O software deve apresentar na página inicial uma sessão com um mapa, indicando os mercados mais próximos do usuário
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-004</th>
+                        <td>
+                          O software deve apresentar, para cada produto, uma imagem correspondente
                         </td>
                         <td>MÉDIA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-005</th>
+                        <td>
+                          Ao clicar em um produto, o software deve apresentar uma tela que exiba o nome do produto, uma foto correspondente, outras possíveis versões desse produto e os mercados onde são ofertados com seus respectivos preços
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-006</th>
+                        <td>
+                          O software deve oferecer um mecanismo de busca interno eficaz que ajuda os usuários a encontrar rapidamente produtos específicos no site
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-007</th>
+                        <td>
+                          Cadastrar usuários: O software deve apresentar uma tela de login/cadastro, em que serão solicitados o usuário e senha, ou o nome de usuário, e-mail, telefone, CPF e senha, respectivamente
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-008</th>
+                        <td>
+                          O software deve apresentar uma tela de “ofertas”, em que exibe as melhores ofertas de produtos, com seus respectivos preços e estabelecimento onde se encontram
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-009</th>
+                        <td>
+                          O software deve apresentar uma tela de “mercados”, em que exibe os mercados cadastrados e sua distância do usuário
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-010</th>
+                        <td>
+                          O software deve apresentar, para cada mercado, uma imagem correspondente
+                        </td>
+                        <td>MÉDIA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-011</th>
+                        <td>
+                          O software deve apresentar uma tela de “mercado”, em que exibe um mercado específico clicado pelo usuário, com seus respectivos produtos, separados por categoria, e com seus respectivos preços e uma mensagem informando a disponibilidade do produto
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-012</th>
+                        <td>
+                          Formulários de Contato: O software deve facilitar o contato dos visitantes, fornecendo formulários de contato ou informações de contato claramente visíveis
+                        </td>
+                        <td>MÉDIA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-013</th>
+                        <td>
+                          Cadastrar mercados: O software deve ter a capacidade de que seja cadastrado e armazenado informações referentes aos estabelecimentos
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RF-014</th>
+                        <td>
+                          Cadastrar produtos: O software deve ter a capacidade de que seja cadastrado e armazenado informações referentes aos produtos
+                        </td>
+                        <td>ALTA</td>
                       </tr>
                     </tbody>
                   </table>
@@ -584,18 +663,58 @@
                       <tr>
                         <th scope="row">RNF-001</th>
                         <td>
-                          O sistema deve ser responsivo para rodar em um
-                          dispositivos móvel<span class="exemplo">EXEMPLO</span>
+                          O software deve ser publicado em um ambiente acessível publicamente na Internet
                         </td>
-                        <td>MÉDIA</td>
+                        <td>ALTA</td>
                       </tr>
                       <tr>
                         <th scope="row">RNF-002</th>
                         <td>
-                          Deve processar requisições do usuário em no máximo
-                          3s<span class="exemplo">EXEMPLO</span>
+                          Design Responsivo: O software deve ser otimizado para funcionar bem em dispositivos móveis, tablets e desktops, garantindo uma experiência consistente em todas as telas
                         </td>
-                        <td>BAIXA</td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RNF-003</th>
+                        <td>
+                          O software deve ter bom nível de contraste entre os elementos da tela
+                        </td>
+                        <td>MÉDIA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RNF-004</th>
+                        <td>
+                          O software deve ser compatível com os principais navegadores
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RNF-005</th>
+                        <td>
+                          Navegação Intuitiva: O menu de navegação deve ser claro e fácil de usar, com uma estrutura lógica que permite aos usuários encontrar facilmente o que estão procurando
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RNF-006</th>
+                        <td>
+                          O sistema não deverá permitir o cadastro duplicado de nome de usuário, e-mail e CPF
+                        </td>
+                        <td>MÉDIA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RNF-007</th>
+                        <td>
+                          Conteúdo de Qualidade: O software deve fornecer conteúdo informativo, relevante e atualizado que atenda às necessidades dos usuários
+                        </td>
+                        <td>ALTA</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">RNF-008</th>
+                        <td>
+                          Backup e Manutenção: O software deverá manter backups regulares do site e realizar manutenção para garantir que ele funcione sem problemas
+                        </td>
+                        <td>MÉDIA</td>
                       </tr>
                     </tbody>
                   </table>
@@ -675,8 +794,7 @@
                     </p>
                   </div>
                   <p>
-                    ...... COLOQUE AQUI O DIAGRAMA DE USER FLOW E O LINK PARA O
-                    PROTÓTIPO INTERATIVO ......
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe><iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3-408%26t%3D0VwYztWYXvRnuMEt-1%26scaling%3Dscale-down%26page-id%3D0%253A1%26starting-point-node-id%3D3%253A408%26mode%3Ddesign" allowfullscreen></iframe>
                   </p>
                 </section>
 
@@ -713,8 +831,39 @@
                     </p>
                   </div>
                   <p>
-                    ...... COLOQUE AQUI OS PROTÓTIPO DE TELAS E SUA DESCRIÇÃO
-                    ......
+                    <p>Página ínicial</p>
+                    <p>
+                      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A408%26mode%3Ddesign%26t%3Dh5a3WMV16d6LLSYF-1" allowfullscreen></iframe>
+                    </p>
+    
+                    <p>Página de cadastro</p>
+                    <p>
+                      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A409%26mode%3Ddesign%26t%3Dh5a3WMV16d6LLSYF-1" allowfullscreen></iframe>
+                    </p>
+    
+                    <p>Página de login</p>
+                    <p>
+                      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A410%26mode%3Ddesign%26t%3Dh5a3WMV16d6LLSYF-1" allowfullscreen></iframe>                    
+                    </p>
+                    <p>Página de ofertas</p>
+                    <p>
+                      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A411%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
+                    </p>
+    
+                    <p>Página de lista de mercados</p>
+                    <p>
+                      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A414%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
+                    </p>
+    
+                    <p>Página de mercado</p>
+                    <p>
+                      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A413%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
+                    </p>
+                    
+                    <p>Página de produto</p>
+                    <p>
+                      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A412%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
+                    </p>
                   </p>
                 </section>
               </section>
@@ -824,9 +973,8 @@
                       <td>Protótipo Interativo</td>
                       <td>MavelApp ou Figma</td>
                       <td>
-                        <a href="https://figma.com/XXXXXXX"
-                          >https://figma.com/XXXXXXX</a
-                        ><span class="exemplo">EXEMPLO</span>
+                        <a href="https://www.figma.com/proto/VaPOF3UcKmq3FpoRcvnd10/Wireframe%2FUser-flow%2FPrototipo?type=design&node-id=3-408&t=oGBiZEwh1XLuP7S8-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=3%3A408&mode=design">
+                          https://figma.com/prototipo</a>
                       </td>
                     </tr>
                   </tbody>
@@ -1063,8 +1211,7 @@
                     apresente um exemplo em formato JSON.
                   </p>
                 </div>
-<<<<<<< HEAD
-                <p><iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe><iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3-408%26t%3D0VwYztWYXvRnuMEt-1%26scaling%3Dscale-down%26page-id%3D0%253A1%26starting-point-node-id%3D3%253A408%26mode%3Ddesign" allowfullscreen></iframe></p>
+                <p></p>
               </section>
 
               <section>
@@ -1075,41 +1222,6 @@
                 <div class="alert alert-warning collapse" role="alert" id="collapseWireframes">
                   <p>Os Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface. <img  class="img-fluid" src="assets/images/exemplo-wireframe.png" alt="Exemplo de wireframe"></p>
                 </div>
-
-                <p>Página ínicial</p>
-                <p>
-                  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A408%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
-                </p>
-
-                <p>Página de cadastro</p>
-                <p>
-                  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A409%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
-                </p>
-
-                <p>Página de login</p>
-                <p>
-                  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A410%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
-                </p>
-
-                <p>Página de ofertas</p>
-                <p>
-                  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A411%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
-                </p>
-
-                <p>Página de lista de mercados</p>
-                <p>
-                  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A414%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
-                </p>
-
-                <p>Página de mercado</p>
-                <p>
-                  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A413%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
-                </p>
-                
-                <p>Página de produto</p>
-                <p>
-                  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVaPOF3UcKmq3FpoRcvnd10%2FWireframe%252FUser-flow%252FPrototipo%3Ftype%3Ddesign%26node-id%3D3%253A412%26mode%3Ddesign%26t%3DPdHoW3Mc8NRCnm8c-1" allowfullscreen></iframe>
-                </p>
               </section>
 
             </section>
@@ -1163,7 +1275,7 @@
                     <tr>
                         <td>Protótipo Interativo</td>
                         <td>MavelApp ou Figma</td>
-                        <td><a href="https://figma.com/XXXXXXX">https://figma.com/XXXXXXX</a><span class="exemplo">EXEMPLO</span></td>
+                        <td><a href="https://www.figma.com/proto/VaPOF3UcKmq3FpoRcvnd10/Wireframe%2FUser-flow%2FPrototipo?type=design&node-id=3-408&t=oGBiZEwh1XLuP7S8-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=3%3A408&mode=design">https://figma.com/prototipo</a><span class="exemplo">EXEMPLO</span></td>
                     </tr>
                 </tbody>
               </table>
