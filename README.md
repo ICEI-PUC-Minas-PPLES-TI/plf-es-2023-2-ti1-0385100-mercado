@@ -4,6 +4,8 @@
 
 Preço Amigo
 
+O projeto Preço Amigo é uma projeto para facilitar as pessoas a procurarem por promoções nos seus produtos preferidos, assim também recomendando os melhores mercados e os mais proximos.
+
 ## Alunos integrantes da equipe
 
 - Igor Fernandes Camargos de Lima
