@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cadastro de Produtos</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body onload="init()">
+    <h1>Cadastro de Produtos</h1>
+
+    <div class="container">
+      <div class="row">
+        <div id="msg" class="col-sm-10 offset-sm-1">
+          <!--<div class="alert alert-warning">Produto não encontrado.</div>-->
+        </div>
+      </div>
+
+      <form id="form-produto">
+        <div class="form-group row">
+          <div class="col-sm-4">
+            <label for="inputId">Id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputId"
+              placeholder="ID"
+              disabled
+            />
+          </div>
+          <div class="col-sm-8">
+            <label for="inputNome">Nome do produto (*)</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputNome"
+              required
+              placeholder="Informe o nome do produto"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-5">
+            <label for="inputTelefone">Tag (*)</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputTelefone"
+              required
+              placeholder="Informe a tag"
+            />
+          </div>
+          <div class="col-sm-7">
+            <label for="inputEmail">Id do mercado (*)</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputEmail"
+              required
+              placeholder="Informe o mercado"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <label for="inputCidade">Preço (*)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputCidade"
+              placeholder="Informe o preço do produto"
+            />
+          </div>
+          <div class="col-sm-6">
+            <label for="inputCategoria">Categoria</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputCategoria"
+              required
+              placeholder="Informe a categoria do produto"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-4">
+            <small>(*) Campos obrigatórios</small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-12">
+            <input
+              type="button"
+              class="btn btn-success"
+              id="btnInsert"
+              value="Inserir"
+            />
+            <input
+              type="button"
+              class="btn btn-warning"
+              id="btnUpdate"
+              value="Alterar"
+            />
+            <input
+              type="button"
+              class="btn btn-danger"
+              id="btnDelete"
+              value="Excluir"
+            />
+            <input
+              type="button"
+              class="btn btn-secondary"
+              id="btnClear"
+              value="Limpar Form"
+            />
+          </div>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <table id="grid-produtos" class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Tag</th>
+                <th scope="col">Mercado</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Categoria</th>
+              </tr>
+            </thead>
+            <tbody id="table-produtos">
+              <tr>
+                <td scope="row">1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      function exibeProdutos() {
+        tableProdutos = document.getElementById("table-produtos");
+
+        // Remove todas as linhas do corpo da tabela
+        tableProdutos.innerHTML = "";
+
+        readProduto((dados) => {
+          // Popula a tabela com os registros do banco de dados
+          for (i = 0; i < dados.length; i++) {
+            let produto = dados[i];
+            tableProdutos.innerHTML += `<tr><td scope="row">${produto.id}</td>
+               <td>${produto.nome}</td>
+               <td>${produto.tag}</td>
+               <td>${produto.mercado}</td>
+               <td>${produto.preço}</td>
+               <td>${produto.categoria}</td>
+               </tr>`;
+          }
+        });
+      }
+
+      function init() {
+        // Define uma variável para o formulário de produto
+        formProduto = document.getElementById("form-produto");
+
+        // Adiciona funções para tratar os eventos
+        btnInsert = document.getElementById("btnInsert");
+        btnInsert.addEventListener("click", function () {
+          // Verifica se o formulário está preenchido corretamente
+          if (!formProduto.checkValidity()) {
+            displayMessage("Preencha o formulário corretamente.");
+            return;
+          }
+
+          // Obtem os valores dos campos do formulário
+          let campoNome = document.getElementById("inputNome").value;
+          let campoTelefone = document.getElementById("inputTelefone").value;
+          let campoEmail = document.getElementById("inputEmail").value;
+          let campoCidade = document.getElementById("inputCidade").value;
+          let campoCategoria = document.getElementById("inputCategoria").value;
+
+          // Cria um objeto com os dados do produto
+          let produto = {
+            nome: campoNome,
+            tag: campoTelefone,
+            mercado: campoEmail,
+            preço: campoCidade,
+            categoria: campoCategoria,
+          };
+
+          // Cria o produto no banco de dados
+          createProduto(produto, exibeProdutos);
+
+          // Limpa o formulario
+          formProduto.reset();
+        });
+
+        // Trata o click do botão Alterar
+        btnUpdate = document.getElementById("btnUpdate");
+        btnUpdate.addEventListener("click", function () {
+          // Obtem os valores dos campos do formulário
+          let campoId = document.getElementById("inputId").value;
+          if (campoId == "") {
+            displayMessage("Selecione antes um produto para ser alterado.");
+            return;
+          }
+
+          // Obtem os valores dos campos do formulário
+          let campoNome = document.getElementById("inputNome").value;
+          let campoTelefone = document.getElementById("inputTelefone").value;
+          let campoEmail = document.getElementById("inputEmail").value;
+          let campoCidade = document.getElementById("inputCidade").value;
+          let campoCategoria = document.getElementById("inputCategoria").value;
+
+          // Cria um objeto com os dados do produto
+          let produto = {
+            nome: campoNome,
+            tag: campoTelefone,
+            mercado: campoEmail,
+            preço: campoCidade,
+            categoria: campoCategoria,
+          };
+
+          // Altera o produto no banco de dados
+          updateProduto(parseInt(campoId), produto, exibeProdutos);
+
+          // Limpa o formulario
+          formProduto.reset();
+        });
+
+        // Trata o click do botão Excluir
+        btnDelete = document.getElementById("btnDelete");
+        btnDelete.addEventListener("click", function () {
+          let campoId = document.getElementById("inputId").value;
+          if (campoId == "") {
+            displayMessage("Selecione um produto a ser excluído.");
+            return;
+          }
+
+          // Exclui o produto no banco de dados
+          deleteProduto(parseInt(campoId), exibeProdutos);
+
+          // Limpa o formulario
+          formProduto.reset();
+        });
+
+        // Trata o click do botão Listar produto
+        btnClear = document.getElementById("btnClear");
+        btnClear.addEventListener("click", function () {
+          formProduto.reset();
+        });
+
+        // Oculta a mensagem de aviso após alguns 5 segundos
+        msg = document.getElementById("msg");
+        msg.addEventListener("DOMSubtreeModified", function (e) {
+          if (e.target.innerHTML == "") return;
+          setTimeout(function () {
+            alert = msg.getElementsByClassName("alert");
+            alert[0].remove();
+          }, 5000);
+        });
+
+        // Preenche o formulário quando o usuario clicar em uma linha da tabela
+        gridCProduto = document.getElementById("grid-produtos");
+        gridCProduto.addEventListener("click", function (e) {
+          if (e.target.tagName == "TD") {
+            // Obtem as colunas da linha selecionada na tabela
+            let linhaProduto = e.target.parentNode;
+            colunas = linhaProduto.querySelectorAll("td");
+
+            // Preenche os campos do formulário com os dados da linha selecionada na tabela
+            document.getElementById("inputId").value = colunas[0].innerText;
+            document.getElementById("inputNome").value = colunas[1].innerText;
+            document.getElementById("inputTelefone").value =
+              colunas[2].innerText;
+            document.getElementById("inputEmail").value = colunas[3].innerText;
+            document.getElementById("inputCidade").value = colunas[4].innerText;
+            document.getElementById("inputCategoria").value =
+              colunas[5].innerText;
+          }
+        });
+
+        exibeProdutos();
+      }
+    </script>
+  </body>
+</html>
