@@ -14,6 +14,7 @@ O projeto Preço Amigo é uma projeto para facilitar as pessoas a procurarem por
 - Gabriel Cezar Romão Barbosa
 - Thales de Souza Ferreira
 - Túlio Henrique Martins Gonçalves
+- João Guilherme Falante Araújo
 
 ## Professores responsáveis
 
