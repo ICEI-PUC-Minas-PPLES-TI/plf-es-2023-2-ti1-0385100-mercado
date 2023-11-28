@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Mercados</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init()">
+    <h1>Cadastro de Mercados</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+                <!--<div class="alert alert-warning">Mercado não encontrado.</div>-->
+            </div>
+        </div>
+
+        <form id="form-Mercado">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <label for="inputId">Id</label>
+                    <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                </div>
+                <div class="col-sm-8">
+                    <label for="inputNome">Nome (*)</label>
+                    <input type="text" class="form-control" id="inputNome" required
+                        placeholder="Informe o nome do mercado">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label for="inputCnpj">CNPJ (*)</label>
+                    <input type="text" class="form-control" id="inputCnpj" required placeholder="Informe a CNPJ">
+                </div>
+                <div class="col-sm-7">
+                    <label for="inputEndereco">Endereço (*)</label>
+                    <input type="text" class="form-control" id="inputEndereco" required
+                        placeholder="Informe o endereço do mercado">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputCidade">Cidade (*)</label>
+                    <input type="text" class="form-control" id="inputCidade" required placeholder="Informe a cidade">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputEmail">E-mail (*)</label>
+                    <input type="email" class="form-control" id="inputEmail" required placeholder="Informe o e-mail">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <label for="inputTelefone">Telefone (*)</label>
+                    <input type="text" class="form-control" id="inputTelefone" required
+                        placeholder="Informe o telefone">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <small>(*) Campos obrigatórios</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="button" class="btn btn-success" id="btnInsert" value="Inserir">
+                    <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar">
+                    <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir">
+                    <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form">
+                    <a href="lista_mercados.html"><input type="button" class="btn btn-warning" id="btnClear"
+                            value="Pesquisar Mercados"></a>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="grid-Mercados" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">CNPJ</th>
+                            <th scope="col">Endereço</th>
+                            <th scope="col">Cidade</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-Mercados">
+                        <tr>
+                            <td scope="row">1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        function exibeMercados() {
+            tableMercados = document.getElementById("table-Mercados");
+
+            // Remove todas as linhas do corpo da tabela
+            tableMercados.innerHTML = "";
+
+            readMercado(dados => {
+                // Popula a tabela com os registros do banco de dados
+                for (i = 0; i < dados.length; i++) {
+                    let Mercado = dados[i];
+                    tableMercados.innerHTML += `<tr><td scope="row">${Mercado.id}</td>
+                                                    <td>${Mercado.nome}</td>
+                                                    <td>${Mercado.cnpj}</td>
+                                                    <td>${Mercado.endereco}</td>
+                                                    <td>${Mercado.cidade}</td>
+                                                    <td>${Mercado.email}</td>
+                                                    <td>${Mercado.telefone}</td>
+                                                </tr>`;
+                }
+            })
+        }
+
+        function init() {
+            // Define uma variável para o formulário de Mercado
+            formMercado = document.getElementById("form-Mercado");
+
+            // Adiciona funções para tratar os eventos 
+            btnInsert = document.getElementById("btnInsert");
+            btnInsert.addEventListener('click', function () {
+                // Verifica se o formulário está preenchido corretamente
+                if (!formMercado.checkValidity()) {
+                    displayMessage("Preencha o formulário corretamente.");
+                    return;
+                }
+
+                // Obtem os valores dos campos do formulário
+                let campoNome = document.getElementById('inputNome').value;
+                let campoCnpj = document.getElementById('inputCnpj').value;
+                let campoEndereco = document.getElementById('inputEndereco').value;
+                let campoCidade = document.getElementById('inputCidade').value;
+                let campoEmail = document.getElementById('inputEmail').value;
+                let campoTelefone = document.getElementById('inputTelefone').value;
+
+                // Cria um objeto com os dados do Mercado
+                let Mercado = {
+                    nome: campoNome,
+                    cnpj: campoCnpj,
+                    endereco: campoEndereco,
+                    cidade: campoCidade,
+                    email: campoEmail,
+                    telefone: campoTelefone
+                };
+
+                // Cria o Mercado no banco de dados
+                createMercado(Mercado, exibeMercados);
+
+                // Limpa o formulario
+                formMercado.reset()
+            });
+
+            // Trata o click do botão Alterar
+            btnUpdate = document.getElementById("btnUpdate");
+            btnUpdate.addEventListener('click', function () {
+                // Obtem os valores dos campos do formulário
+                let campoId = document.getElementById("inputId").value;
+                if (campoId == "") {
+                    displayMessage("Selecione antes um Mercado para ser alterado.");
+                    return;
+                }
+
+                // Obtem os valores dos campos do formulário
+                let campoNome = document.getElementById('inputNome').value;
+                let campoCnpj = document.getElementById('inputCnpj').value;
+                let campoEndereco = document.getElementById('inputEndereco').value;
+                let campoCidade = document.getElementById('inputCidade').value;
+                let campoEmail = document.getElementById('inputEmail').value;
+                let campoTelefone = document.getElementById('inputTelefone').value;
+
+                // Cria um objeto com os dados do Mercado
+                let Mercado = {
+                    nome: campoNome,
+                    cnpj: campoCnpj,
+                    endereco: campoEndereco,
+                    cidade: campoCidade,
+                    email: campoEmail,
+                    telefone: campoTelefone
+                };
+
+                // Altera o Mercado no banco de dados
+                updateMercado(parseInt(campoId), Mercado, exibeMercados);
+
+                // Limpa o formulario
+                formMercado.reset()
+            });
+
+            // Trata o click do botão Excluir
+            btnDelete = document.getElementById('btnDelete');
+            btnDelete.addEventListener('click', function () {
+                let campoId = document.getElementById('inputId').value;
+                if (campoId == "") {
+                    displayMessage("Selecione um Mercado a ser excluído.");
+                    return;
+                }
+
+                // Exclui o Mercado no banco de dados
+                deleteMercado(parseInt(campoId), exibeMercados);
+
+                // Limpa o formulario
+                formMercado.reset()
+            });
+
+            // Trata o click do botão Listar Mercados
+            btnClear = document.getElementById('btnClear');
+            btnClear.addEventListener('click', function () {
+                formMercado.reset()
+            });
+
+            // Oculta a mensagem de aviso após alguns 5 segundos
+            msg = document.getElementById('msg');
+            msg.addEventListener("DOMSubtreeModified", function (e) {
+                if (e.target.innerHTML == "") return;
+                setTimeout(function () {
+                    alert = msg.getElementsByClassName("alert");
+                    alert[0].remove();
+                }, 5000);
+            })
+
+            // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+            gridMercados = document.getElementById("grid-Mercados");
+            gridMercados.addEventListener('click', function (e) {
+                if (e.target.tagName == "TD") {
+
+                    // Obtem as colunas da linha selecionada na tabela
+                    let linhaMercado = e.target.parentNode;
+                    colunas = linhaMercado.querySelectorAll("td");
+
+                    // Preenche os campos do formulário com os dados da linha selecionada na tabela
+                    document.getElementById('inputId').value = colunas[0].innerText;
+                    document.getElementById('inputNome').value = colunas[1].innerText;
+                    document.getElementById('inputCnpj').value = colunas[2].innerText;
+                    document.getElementById('inputEndereco').value = colunas[3].innerText;
+                    document.getElementById('inputCidade').value = colunas[4].innerText;
+                    document.getElementById('inputEmail').value = colunas[5].innerText;
+                    document.getElementById('inputTelefone').value = colunas[6].innerText;
+                }
+            });
+
+            exibeMercados();
+        }
+    </script>
+</body>
+
+</html>
