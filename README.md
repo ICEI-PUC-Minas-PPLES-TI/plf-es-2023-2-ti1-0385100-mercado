@@ -9,7 +9,7 @@ O projeto Preço Amigo é uma projeto para facilitar as pessoas a procurarem por
 ## Alunos integrantes da equipe
 
 - Igor Fernandes Camargos de Lima
-- Barbara Kawany Goncalves Nunes Carvalho
+- Bárbara Kawany Goncalves Nunes Carvalho
 - Henrique Ferreira Sales
 - Gabriel Cezar Romão Barbosa
 - Thales de Souza Ferreira
