@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Categorias</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">    
+</head>
+
+<body>
+    <h1>Listagem de Categorias</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+                <!--<div class="alert alert-warning">Contato não encontrado.</div>-->
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="msg" class="col-sm-2 offset-sm-10 ">
+                <a href="index.html"><input type="button" class="btn btn-warning" id="btnClear" value="Cadastro"></a>
+            </div>
+        </div>        
+        
+        <form id="form-categoria">            
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <select name="filtro_nome" id="filtro_nome" onchange="ListaCategorias()" class="form-control">
+                        <option value="">Selecione por nome</option>
+                        <option value="Congelados">Congelados</option>
+                        <option value="Limpeza">Limpeza</option>
+                        <option value="Enlatados">Enlatados</option>
+                        <option value="Bebidas">Bebidas</option>
+                    </select>                    
+                </div>
+            </div>
+        </form>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="grid-categorias" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-categorias">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // carrega os dados a partir da API JSONServer
+        var db = []
+        readCategoria(dados => {
+            db = dados;
+            ListaCategorias()
+        });
+
+        // função para listar na tabela os contatos que estão associados aos filtros 
+        function ListaCategorias() {
+            
+            // Obtem os dados informados pelo usuário nos filtros
+            let fc = document.getElementById('filtro_nome').value;
+
+            // limpa a lista de contatos apresentados
+            tableCategorias = document.getElementById("table-categorias");
+            tableCategorias.innerHTML = "";
+
+            // Popula a tabela com os registros do banco de dados
+            for (let index = 0; index < db.length; index++) {
+                const categoria = db[index];
+
+                // Verifica se os dados do contato batem com os filtros
+                if ((categoria.nome == fc) || (fc == '')) {
+                    
+                    // Inclui o contato na tabela    
+                    tableCategorias.innerHTML += `<tr><td scope="row">${categoria.id}</td>
+                                                    <td>${categoria.nome}</td>
+                                                    <td>${categoria.descricao}</td>
+                                                </tr>`;
+                }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
