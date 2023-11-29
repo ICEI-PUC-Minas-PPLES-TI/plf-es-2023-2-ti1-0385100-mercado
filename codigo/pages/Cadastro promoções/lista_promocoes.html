@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Promoções</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">    
+</head>
+
+<body>
+    <h1>Listagem de Promoções</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+                <!--<div class="alert alert-warning">Promoção não encontrada.</div>-->
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="msg" class="col-sm-2 offset-sm-10 ">
+                <a href="index.html"><input type="button" class="btn btn-warning" id="btnClear" value="Cadastro"></a>
+            </div>
+        </div>        
+        
+        <form id="form-promocao">            
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <select name="filtro_descricao" id="filtro_descricao" onchange="ListaPromocoes()" class="form-control">
+                        <option value="">Selecione um mercado</option>
+                        <option value="Super Nosso">Super Nosso</option>
+                        <option value="Supermercados BH">Supermercados BH</option>
+                        <option value="Epa">Epa</option>
+                        <option value="Carrefour">Carrefour</option>
+                        <option value="Dia">Dia</option>
+                    </select>                    
+                </div>
+                <div class="col-sm-8">
+                    <select name="filtro_categoria" id="filtro_categoria" onchange="ListaPromocoes()"  class="form-control">
+                      <option value="">Selecione um Produto</option>
+                      <option value="Congelados">Congelados</option>
+                      <option value="Limpeza">Limpeza</option>
+                      <option value="Enlatados">Enlatados</option>
+                      <option value="Bebidas">Bebidas</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="grid-promocoes" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Mercado</th>
+                            <th scope="col">Valor da promoção</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-promocoes">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // carrega os dados a partir da API JSONServer
+        var db = []
+        readPromocao(dados => {
+            db = dados;
+            ListaPromocoes()
+        });
+
+        // função para listar na tabela os contatos que estão associados aos filtros 
+        function ListaPromocoes() {
+            
+            // Obtem os dados informados pelo usuário nos filtros
+            let fc = document.getElementById('filtro_descricao').value;
+            let fcg = document.getElementById('filtro_categoria').value;
+
+            // limpa a lista de contatos apresentados
+            tablePromocoes = document.getElementById("table-promocoes");
+            tablePromocoes.innerHTML = "";
+
+            // Popula a tabela com os registros do banco de dados
+            for (let index = 0; index < db.length; index++) {
+                const promocao = db[index];
+
+                // Verifica se os dados do promocao batem com os filtros
+                if (((promocao.descricao == fc) || (fc == '')) &&
+                    ((promocao.categoria == fcg) || (fcg == ''))) {
+                    
+                    // Inclui o promocao na tabela    
+                    tablePromocoes.innerHTML += `<tr><td scope="row">${promocao.id}</td>
+                                                    <td>${promocao.produto}</td>
+                                                    <td>${promocao.mercado}</td>
+                                                    <td>${promocao.valor}</td>
+                                                    <td>${promocao.descricao}</td>
+                                                </tr>`;
+                }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

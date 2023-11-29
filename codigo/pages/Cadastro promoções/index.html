@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Promoções</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init()">
+    <h1>Cadastro de Promoções (CRUD)</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+                <!--<div class="alert alert-warning">Promoção não encontrado.</div>-->
+            </div>
+        </div>
+
+        <form id="form-promocao">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <label for="inputId">Id</label>
+                    <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                </div>
+                <div class="col-sm-8">
+                    <label for="inputProduto">Produto (*)</label>
+                    <input type="text" class="form-control" id="inputProduto" required placeholder="Informe o produto do promocao">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label for="inputMercado">Mercado (*)</label>
+                    <input type="text" class="form-control" id="inputMercado" required placeholder="Telefone">
+                </div>
+                <div class="col-sm-7">
+                    <label for="inputValor">Valor da promoção (*)</label>
+                    <input type="text" class="form-control" id="inputValor" required placeholder="Informe o e-mail">
+                </div>
+            </div>
+            <div class="form-group row">    
+                <div class="col-sm-12">
+                    <label for="inputDescricao">Descrição</label>
+                    <input type="text" class="form-control" id="inputDescricao" placeholder="Descrição">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <small>(*) Campos obrigatórios</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="button" class="btn btn-success" id="btnInsert" value="Inserir">
+                    <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar">
+                    <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir">
+                    <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form">
+                    <a href="lista_promocoes.html"><input type="button" class="btn btn-warning" id="btnClear" value="Pesquisar Promoções"></a>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="grid-promocoes" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Mercado</th>
+                            <th scope="col">Valor da Promoção</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-promocoes">
+                        <tr>
+                            <td scope="row">1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        function exibePromocoes() {
+            tablePromocoes = document.getElementById("table-promocoes");
+
+            // Remove todas as linhas do corpo da tabela
+            tablePromocoes.innerHTML = "";
+
+            readPromocao (dados => {
+                // Popula a tabela com os registros do banco de dados
+                for (i = 0; i < dados.length; i++) {
+                    let promocao = dados[i];    
+                    tablePromocoes.innerHTML += `<tr><td scope="row">${promocao.id}</td>
+                                                    <td>${promocao.produto}</td>
+                                                    <td>${promocao.mercado}</td>
+                                                    <td>${promocao.valor}</td>
+                                                    <td>${promocao.descricao}</td>
+                                                </tr>`;
+                }
+            })
+        }
+
+        function init() {
+            // Define uma variável para o formulário de promocao
+            formPromocao = document.getElementById("form-promocao");
+
+            // Adiciona funções para tratar os eventos 
+            btnInsert = document.getElementById("btnInsert");
+            btnInsert.addEventListener ('click', function () {
+                // Verifica se o formulário está preenchido corretamente
+                if (!formPromocao.checkValidity()) {
+                    displayMessage("Preencha o formulário corretamente.");
+                    return;
+                }
+
+                // Obtem os valores dos campos do formulário
+                let campoProduto = document.getElementById ('inputProduto').value;
+                let campoMercado = document.getElementById ('inputMercado').value;
+                let campoValor = document.getElementById ('inputValor').value;
+                let campoDescricao = document.getElementById ('inputDescricao').value;
+
+                // Cria um objeto com os dados do promocao
+                let promocao = { produto: campoProduto, 
+                    mercado: campoMercado, 
+                    valor: campoValor, 
+                    descricao: campoDescricao };
+
+                // Cria o promocao no banco de dados
+                createPromocao(promocao, exibePromocoes);
+
+                // Limpa o formulario
+                formPromocao.reset()
+            });
+
+            // Trata o click do botão Alterar
+            btnUpdate = document.getElementById("btnUpdate");
+            btnUpdate.addEventListener ('click', function () {
+                // Obtem os valores dos campos do formulário
+                let campoId = document.getElementById("inputId").value;
+                if (campoId == "") {
+                    displayMessage("Selecione antes um promocao para ser alterado.");
+                    return;
+                }
+
+                // Obtem os valores dos campos do formulário
+                let campoProduto = document.getElementById('inputProduto').value;
+                let campoMercado = document.getElementById('inputMercado').value;
+                let campoValor = document.getElementById('inputValor').value;
+                let campoDescricao = document.getElementById('inputDescricao').value;
+                
+                // Cria um objeto com os dados do promocao
+                let promocao = { produto: campoProduto, 
+                    mercado: campoMercado, 
+                    valor: campoValor, 
+                    descricao: campoDescricao };
+
+                // Altera o promocao no banco de dados
+                updatePromocao(parseInt(campoId), promocao, exibePromocoes);
+
+                // Limpa o formulario
+                formPromocao.reset()
+            });
+
+            // Trata o click do botão Excluir
+            btnDelete = document.getElementById('btnDelete');
+            btnDelete.addEventListener ('click', function () {
+                let campoId = document.getElementById('inputId').value;
+                if (campoId == "") {
+                    displayMessage("Selecione um promocao a ser excluído.");
+                    return;
+                }
+
+                // Exclui o promocao no banco de dados
+                deletePromocao(parseInt(campoId), exibePromocoes);
+
+                // Limpa o formulario
+                formPromocao.reset()
+            });
+
+            // Trata o click do botão Listar Promocoes
+            btnClear = document.getElementById('btnClear');
+            btnClear.addEventListener ('click', function () {                
+                formPromocao.reset()
+            });
+
+            // Oculta a mensagem de aviso após alguns 5 segundos
+            msg = document.getElementById('msg');
+            msg.addEventListener ("DOMSubtreeModified", function (e) {
+                if (e.target.innerHTML == "") return;
+                setTimeout (function () {
+                    alert = msg.getElementsByClassName("alert");
+                    alert[0].remove();
+                }, 5000);
+            })
+
+            // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+            gripPromocoes = document.getElementById("grid-promocoes");
+            gripPromocoes.addEventListener('click', function (e) {
+                if (e.target.tagName == "TD") { 
+
+                    // Obtem as colunas da linha selecionada na tabela
+                    let linhaPromocao = e.target.parentNode;
+                    colunas = linhaPromocao.querySelectorAll("td");
+                    
+                    // Preenche os campos do formulário com os dados da linha selecionada na tabela
+                    document.getElementById ('inputId').value = colunas[0].innerText;
+                    document.getElementById ('inputProduto').value = colunas[1].innerText;
+                    document.getElementById ('inputMercado').value = colunas[2].innerText;
+                    document.getElementById ('inputValor').value = colunas[3].innerText;
+                    document.getElementById ('inputDescricao').value = colunas[4].innerText;
+                }
+            });
+
+            exibePromocoes();
+        }
+    </script>
+</body>
+
+</html>
