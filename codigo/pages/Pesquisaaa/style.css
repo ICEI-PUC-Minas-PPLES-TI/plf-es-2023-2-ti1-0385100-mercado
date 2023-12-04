@@ -1,0 +1,25 @@
+body {
+    background-color:#D5FFFF; /* Nova cor de fundo para o body */
+    margin: 0; /* Remova as margens padrão */
+    padding: 0; /* Remova o preenchimento padrão */
+}
+nav {
+    background-color: #4BA100;
+    color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#pesquisa {
+    border: none;
+    padding: 10px;
+    background-color: #D5E1FF;
+    color: black;
+    border-radius: 5px;
+    width: 450px;
+}
+
+#pesquisa::placeholder {
+    color: black;
+}
