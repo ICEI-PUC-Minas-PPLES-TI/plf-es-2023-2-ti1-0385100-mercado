@@ -21,3 +21,37 @@ label {
  #grid-Mercados tbody {
      cursor: pointer;
  }
+
+ body{
+    background-color: #70FF83;
+    color: black;
+ }
+
+ #grid-Mercados{
+    background-color: white;
+    border-radius: 5px;
+ }
+
+ .form-control:focus{
+    background-color: rgb(159, 232, 247);
+    color: black;
+ }
+
+ #btnInsert:hover{
+    background-color: white;
+    color: #28a745;
+ }
+
+ #btnUpdate:hover{
+    background-color: black;
+    color: #ffc107;
+ }
+
+ #btnDelete:hover{
+    background-color: white;
+    color: #dc3545;
+ }
+
+ h1:hover{
+    color: white;
+ }
