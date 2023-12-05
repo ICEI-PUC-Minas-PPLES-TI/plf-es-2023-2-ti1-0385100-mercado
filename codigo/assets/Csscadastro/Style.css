@@ -25,7 +25,11 @@ label {
  #grid-categorias tbody {
      cursor: pointer;
  }
-
+.col-sm-12ad{
+  flex: 0 0 100%;
+  max-width: 100%;
+  min-height: 55vh;
+}
  .footer-dark {
     padding:50px 0;
     color:#f0f9ff;
