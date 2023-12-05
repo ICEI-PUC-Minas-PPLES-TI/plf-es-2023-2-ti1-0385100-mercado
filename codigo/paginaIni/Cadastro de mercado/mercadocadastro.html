@@ -7,21 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastro de Mercados</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/Csscadastro/Style.css">
+    <link rel="stylesheet" href="mercado.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body onload="init()">
     <div class="navbar">
-        <a href="index.html"><img
+        <a href="../HomePag/index.html"><img
             src="https://cdn.discordapp.com/attachments/1156749085869613177/1181363440107929640/Prancheta_1.png?ex=6580c970&is=656e5470&hm=cbfc161843eb4e8eb72c1031dde7477489be261330b284584e08945c24e693f5&"
             class="logo"></a>
         <div class="navlist">
           <ul>
-            <li><a href="#">Cadastro de Mercados</a></li>
-            <li><a href="#">Cadastro de Produtos</a></li>
-            <li><a href="#">Mercados</a></li>
-            <li><a href="#">Produtos</a></li>
-            <li><a href="sobrenos.html">Sobre Nós</a></li>
+            <li><a href="../Cadastro de mercado/mercadocadastro.html">Cadastro de Mercados</a></li>
+            <li><a href="../Cadastro de produtos/index.html">Cadastro de Produtos</a></li>
+            <li><a href="../listaMercado/index (1).html">Mercados</a></li>
+            <li><a href="../Favoritos/index.html">Produtos</a></li>
+            <li><a href="../HomePag/sobrenos.html">Sobre Nós</a></li>
           </ul>
         </div>
         <div class="bx bx-menu-alt-right" id="menu-icon"></div>
@@ -93,7 +95,7 @@
         </form>
 
         <div class="row">
-            <div class="col-sm-12ad">
+            <div class="col-sm-12">
                 <table id="grid-Mercados" class="table table-striped">
                     <thead>
                         <tr>
@@ -121,7 +123,6 @@
             </div>
         </div>
     </div>
-
     <div class="footer-dark">
         <footer>
           <div class="container">
@@ -129,15 +130,14 @@
               <div class="col-sm-6 col-md-3 item">
                 <h3>Serviços</h3>
                 <ul>
-                  <li><a href="#">Mercados</a></li>
-                  <li><a href="#">Produtos</a></li>
-                  <li><a href="#">Ofertas</a></li>
+                  <li><a href="../listaMercado/index (1).html">Mercados</a></li>
+                  <li><a href="../Favoritos/index.html">Produtos</a></li>
                 </ul>
               </div>
               <div class="col-sm-6 col-md-3 item">
                 <h3>Sobre</h3>
                 <ul>
-                  <li><a href="#">Quem somos</a></li>
+                  <li><a href="../HomePag/sobrenos.html">Quem somos</a></li>
                 </ul>
               </div>
               <div class="col-md-6 item text">
@@ -148,8 +148,7 @@
           </div>
         </footer>
       </div>
-
-    <script src="app.js"></script>
+    <script src="appmercado.js"></script>
     <script>
         function exibeMercados() {
             tableMercados = document.getElementById("table-Mercados");
