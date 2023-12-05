@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function abrirPopup(produto) {
-
+  registrarVisualizacaoProduto(produto.id);
   document.getElementById('overlay').style.display = 'block';
   document.getElementById('popup').style.display = 'block';
   document.getElementById('popupTitulo').innerText = produto.nome;

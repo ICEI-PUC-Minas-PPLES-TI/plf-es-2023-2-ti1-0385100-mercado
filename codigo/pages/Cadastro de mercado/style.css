@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
 label {
     font-weight: bolder;
 }
@@ -23,13 +27,14 @@ label {
  }
 
  body{
-    background-color: #70FF83;
-    color: black;
+    background-color: #00673a;
+    color: white;
  }
 
  #grid-Mercados{
     background-color: white;
     border-radius: 5px;
+    color: black;
  }
 
  .form-control:focus{

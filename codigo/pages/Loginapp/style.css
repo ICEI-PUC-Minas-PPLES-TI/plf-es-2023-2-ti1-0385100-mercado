@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: url('https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2021/06/3242_C9BAF28E8A349AB0-2.jpg?w=1220&h=674&crop=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.text-center {
+    color: #00673a !important;
+}
+
+.text-info {
+    color: #00673a !important;
+}
+
+.btn {
+    background-color: #00673a;
+    border-color: #00673a;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #00673a;
+    border-color: #00673a;
+}
+
+#grid-usuarios {
+    color: white;
+    background-color: #00673a;
+}
+
+h1 {
+    color: #00673a;
+    text-align: center;
+}
+
+
+#btn_logout {
+    background-color: #00673a;
+    color: white;
+    border-radius: 5px;
+}
+
+@media screen and (max-width:600px) {
+    body {
+        height: 100vh;
+        background-image: url('fundo.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    #login-box {
+        padding-top: 100px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:1400px) {
+    body {
+        height: 100vh;
+    }
+}
