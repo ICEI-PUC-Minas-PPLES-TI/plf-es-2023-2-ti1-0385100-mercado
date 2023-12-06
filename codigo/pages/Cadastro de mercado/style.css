@@ -3,60 +3,27 @@
   font-family: "Poppins", sans-serif;
 }
 label {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 ::placeholder {
-    color: lightskyblue !important;
-    opacity: 3;
+  color: lightskyblue !important;
+  opacity: 3;
 }
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:  lightskyblue !important;
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: lightskyblue !important;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:  lightskyblue !important;
-    opacity:  3;
- }
- h1 {
-     text-align: center;
- }
- #msg {
-     height: 60px;
- }
- #grid-Mercados tbody {
-     cursor: pointer;
- }
-
- body{
-    background-color: #00673a;
-    color: white;
- }
-
- #grid-Mercados{
-    background-color: white;
-    border-radius: 5px;
-    color: black;
- }
-
- .form-control:focus{
-    background-color: rgb(159, 232, 247);
-    color: black;
- }
-
- #btnInsert:hover{
-    background-color: white;
-    color: #28a745;
- }
-
- #btnUpdate:hover{
-    background-color: black;
-    color: #ffc107;
- }
-
- #btnDelete:hover{
-    background-color: white;
-    color: #dc3545;
- }
-
- h1:hover{
-    color: white;
- }
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: lightskyblue !important;
+  opacity: 3;
+}
+h1 {
+  text-align: center;
+}
+#msg {
+  height: 60px;
+}
+#grid-contatos tbody {
+  cursor: pointer;
+}

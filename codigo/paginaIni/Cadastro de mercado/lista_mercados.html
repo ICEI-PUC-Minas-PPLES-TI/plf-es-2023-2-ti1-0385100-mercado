@@ -7,10 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastro de Mercados</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/Csscadastro/Style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="mercado.css">
 </head>
 
 <body>
+    <div class="navbar">
+        <a href="../HomePag/index.html"><img
+            src="https://cdn.discordapp.com/attachments/1156749085869613177/1181363440107929640/Prancheta_1.png?ex=6580c970&is=656e5470&hm=cbfc161843eb4e8eb72c1031dde7477489be261330b284584e08945c24e693f5&"
+            class="logo"></a>
+        <div class="navlist">
+          <ul>
+            <li><a href="../Cadastro de mercado/mercadocadastro.html">Cadastro de Mercados</a></li>
+            <li><a href="../Cadastro de produtos/index.html">Cadastro de Produtos</a></li>
+            <li><a href="../listaMercado/index (1).html">Mercados</a></li>
+            <li><a href="../Favoritos/index.html">Produtos</a></li>
+            <li><a href="../HomePag/sobrenos.html">Sobre Nós</a></li>
+          </ul>
+        </div>
+        <div class="bx bx-menu-alt-right" id="menu-icon"></div>
+      </div>
     <h1>Listagem de Mercados</h1>
 
     <div class="container">
@@ -22,7 +39,7 @@
 
         <div class="row">
             <div id="msg" class="col-sm-2 offset-sm-10 ">
-                <a href="index.html"><input type="button" class="btn btn-warning" id="btnClear" value="Cadastro"></a>
+                <a href="lista_mercados.html"><input type="button" class="btn btn-warning" id="btnClear" value="Cadastro"></a>
             </div>
         </div>
 
@@ -72,7 +89,7 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="appmercado.js"></script>
     <script>
         // carrega os dados a partir da API JSONServer
         var db = []
