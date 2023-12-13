@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: Preço Amigo
 authors:
   - family-names: Fernandes Camargos de Lima
     given-names: Igor
@@ -33,7 +33,7 @@ date-released: 2023-04-12
 =======
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: Preço Amigo
 authors:
   - family-names: Fernandes Camargos de Lima
     given-names: Igor
