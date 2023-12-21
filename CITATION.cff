@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: Preço Amigo
@@ -28,36 +27,3 @@ repository-code: https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti1-03
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2023-04-12
-=======
-cff-version: 1.0.1
-message: Please cite this software using these metadata.
-title: Preço Amigo
-authors:
-  - family-names: Fernandes Camargos de Lima
-    given-names: Igor
-  - family-names: Kawany Goncalves Nunes Carvalho
-    given-names: Bárbara
-  - family-names: Cezar Romão Barbosa
-    given-names: Gabriel
-  - family-names: Henrique Martins Gonçalves
-    given-names: Túlio
-  - family-names: Guilherme Falante Araújo
-    given-names: João
-  - family-names: 
-    given-names:
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: Vieira Carneiro
-    given-names: Rommel
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: Dias Ferreira da Rocha
-    given-names: Roberto Felipe
-keywords:
-  - Mercado
-  - Promoção
-repository-code: https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti1-0385100-mercado
-license: CC-BY-4.0
-version: 1.0.0
-date-released: 2023-04-12
->>>>>>> 576e4073eb686b7caee5801aac8f95491eb4d605
